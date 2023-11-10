@@ -218,7 +218,7 @@ public struct ChatQuery: Equatable, Codable, Streamable {
     /// Controls how the model responds to function calls. "none" means the model does not call a function, and responds to the end-user. "auto" means the model can pick between and end-user or calling a function. Specifying a particular function via `{"name": "my_function"}` forces the model to call that function. "none" is the default when no functions are present. "auto" is the default if functions are present.
     public let functionCall: FunctionCall?
     /// What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and  We generally recommend altering this or top_p but not both.
-    public let seed: Integer?
+    public let seed: Int?
     public let temperature: Double?
     /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
     public let topP: Double?
@@ -283,7 +283,7 @@ public struct ChatQuery: Equatable, Codable, Streamable {
         case user
     }
     
-  public init(model: Model, messages: [Chat], functions: [ChatFunctionDeclaration]? = nil, functionCall: FunctionCall? = nil, seed: Integer? = nil, temperature: Double? = nil, topP: Double? = nil, n: Int? = nil, stop: [String]? = nil, maxTokens: Int? = nil, presencePenalty: Double? = nil, frequencyPenalty: Double? = nil, logitBias: [String : Int]? = nil, user: String? = nil, stream: Bool = false) {
+  public init(model: Model, messages: [Chat], functions: [ChatFunctionDeclaration]? = nil, functionCall: FunctionCall? = nil, seed: Int? = nil, temperature: Double? = nil, topP: Double? = nil, n: Int? = nil, stop: [String]? = nil, maxTokens: Int? = nil, presencePenalty: Double? = nil, frequencyPenalty: Double? = nil, logitBias: [String : Int]? = nil, user: String? = nil, stream: Bool = false) {
         self.model = model
         self.messages = messages
         self.functions = functions
